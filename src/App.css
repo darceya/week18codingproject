@@ -92,3 +92,12 @@ li:hover {
   text-align: center;
   padding: 5px;
 }
+
+.contactUs {
+  color: navy;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}

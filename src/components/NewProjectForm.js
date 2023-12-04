@@ -3,44 +3,45 @@ import {useState, useEffect} from 'react';
 
 
 
-export default class NewProject extends React.Component {
+//export default class NewProject extends React.Component {
 
+const NewProject = () => {
+    const MOCK_API_URL = 'https://6541ce42f0b8287df1fee8ad.mockapi.io/Projects';
+  
+    const [newProjectName, setNewProjectName] = useState('');
+    const [newProjectStartDate, setNewProjectStartDate] = useState('');
+    const [newProjectEndDate, setNewProjectEndDate] = useState('');
+    const [newProjectStatus, setNewProjectStatus] = useState('');
+  
+    const getProjects = () => {
+      fetch(MOCK_API_URL)
+        .then(data => data.json())
+        .then(data => console.log(data));
+    };
 
-    postNewProject = (e) => {
+    const postNewProject = (e) => {
         e.preventDefault();
-        const {
+        console.log(
             newProjectName,
             newProjectStartDate,
             newProjectEndDate,
-            newProjectStatus,
-            getProjects,
-            MOCK_API_URL,
-        } = this.props;
-
-        console.log(newProjectName, newProjectStartDate, newProjectEndDate, newProjectStatus);
+            newProjectStatus
+        );
 
         fetch(MOCK_API_URL, {
-            method: 'POST',
+            method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 projectName: newProjectName,
                 projectStartDate: newProjectStartDate,
                 projectEndDate: newProjectEndDate,
                 projectStatus: newProjectStatus
-            })
-        }).then(() => getProjects());
-    }
+        }),
+    }).then(() => getProjects());
+};
 
-    render() {
-        const {
-            setNewProjectName,
-            setNewProjectStartDate,
-            setNewProjectEndDate,
-            setNewProjectStatus,
-        } = this.props;
-
-        return (
-            <div className="newProject">
+return (
+    <div className="newProject">
                 <form>
                     <h3>New Project Form</h3>
                     <label>Project Name</label>
@@ -51,9 +52,10 @@ export default class NewProject extends React.Component {
                     <input onChange={(e) => setNewProjectEndDate(e.target.value)}></input>
                     <label>Project Status</label>
                     <input onChange={(e) => setNewProjectStatus(e.target.value)}></input>
-                    <button className="successButton" onClick={(e) => this.postNewProject(e)}>Submit</button>
+                    <button className="successButton" onClick={(e) => postNewProject(e)}>Submit</button>
                 </form>
             </div>
-        )
-    }
-}
+);
+}; 
+
+export default NewProject;

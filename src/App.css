@@ -1,5 +1,5 @@
 body {
-  background-color: lightblue;
+  background-color: lightgray;
   margin: 1rem;
   color: black;
   font-family: sans-serif;
@@ -27,6 +27,19 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
+  padding: 10px 15px; 
+  border: 1px solid navy; 
+  border-radius: 5px; 
+  background: lightgray;
+  color: #545e6f;
+  text-decoration: none; 
+  transition: background 0.3s, color 0.3s, border-color 0.3s; 
+}
+
+li:hover {
+  color: #fff; 
+  background: darkgrey; 
+  border-color: darkgray;
 }
 
 .dangerButton {
@@ -68,5 +81,14 @@ li {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
+  padding: 5px;
+}
+
+.homeTitle {
+  color: navy;
+  font-weight: 700;
+  font-size: larger;
+  margin-top: 2em;
+  text-align: center;
   padding: 5px;
 }

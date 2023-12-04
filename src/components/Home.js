@@ -2,5 +2,9 @@ import React, { useState } from 'react';
 
 
 export function Home() {
-    return <h1>  Home </h1>
+    return (
+        <div className='homeTitle'>
+            Welcome to the Project Insight Hub
+        </div>
+    )
 }
